@@ -1,0 +1,44 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id       String @id @default(cuid())
+  username String @unique
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  FeedActions  FeedAction[]
+  WaterActions WaterAction[]
+
+  @@map("users")
+}
+
+model FeedAction {
+  id     String @id @default(cuid())
+  userId String
+
+  timestamp DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("feed_actions")
+}
+
+model WaterAction {
+  id     String @id @default(cuid())
+  userId String
+
+  timestamp DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("water_actions")
+}
