@@ -1,6 +1,11 @@
+/*
+  Colors used : Catppucin Mocha
+  https://catppuccin.com/palette/
+*/
+
 .app {
   background-color: #1e1e2e;
-  color: white;
+  color: #cdd6f4;
   height: 100vh;
   padding: 1rem;
   overflow: auto;
@@ -18,12 +23,13 @@
   margin: 0;
   padding: 0;
   background-color: transparent;
-  color: white;
+  color: #cdd6f4;
   width: 100%;
   font-size: large;
   caret-color: auto;
 }
 
 .terminal {
+  /* Very important to make \n works */
   white-space: pre-line;
 }

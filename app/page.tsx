@@ -176,7 +176,7 @@ export default function HomePage() {
   };
 
   return (
-    <section className={`${styles.app}`} onClick={() => inputRef.current?.focus()}>
+    <section className={styles.app} onClick={() => inputRef.current?.focus()}>
       <div className={styles.terminal}>{output}</div>
       <div className={styles.inputContainer}>
         <span>$</span>
